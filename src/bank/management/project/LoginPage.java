@@ -19,7 +19,11 @@ import javax.swing.*; // built on top of AWT and provides components for GUI
 // ActionListener interface responds to actions like mouse click and keyboard input
 public class LoginPage extends JFrame implements ActionListener{
     
-    //--------------------------GLOBAL VARIABLES--------------------------------
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+		//--------------------------GLOBAL VARIABLES--------------------------------
         JLabel label_welcome,label_cardno,label_pin,label_credits; // jlabel is a class inside javax.swing and displays a short string
         JTextField txtfield_input; // creates input box for input
         JPasswordField passfield_password; // create input box for astrerik input
@@ -118,6 +122,7 @@ public class LoginPage extends JFrame implements ActionListener{
             Connector conn = new Connector(); // object of Connector class
             String cardno = txtfield_input.getText();
             String pass = passfield_password.getText();
+//            String pass = new String(passfield_password.getPassword());
             String query1 = "select * from login where cardno = '"+cardno+"' and password = '"+pass+"'";
             // this query1 is used to access the "login" database
             ResultSet rs = conn.s.executeQuery(query1); // table of data representing the database
